@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet.pm@latest/dist/leaflet.pm.css" />
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.js"></script> -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script> 
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet-search@2.3.7/dist/leaflet-search.src.css" />
+<script src="https://unpkg.com/leaflet-search@2.3.7/dist/leaflet-search.src.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/perliedman-leaflet-control-geocoder/2.4.0/Control.Geocoder.min.css" integrity="sha512-XK7G+iGsTdf8/PmVD9/ju65AxCIOaUZly1lY8r9jCNrXO5rGzT2lMYCySGEhb/v8XYXybsZUztXvRdGSyxu/3A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+      
+      #map {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+    </style>
+  </head>
+  <body>
+    
+    <div id="map">
+      <!-- <input autocomplete="off" id="search" type="text" /> -->
+      <script src="https://unpkg.com/leaflet.pm@latest/dist/leaflet.pm.min.js"></script>
+      <a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;"></a>
+    </div>
+    <script>
+      var map = L.map('map').setView([0, 0], 2);
+      L.tileLayer('https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=VWDNMx3Rfon2fMznzEzr',{    
+        attribution: " \u003c/a\u003e \u003ca href=\"https://www.openstreetmap.org/copyright\" target=\"_blank\"\u003e\u0026copy; OpenStreetMap contributors\u003c/a\u003e",
+      }).addTo(map);
+      L.Control.geocoder().addTo(map);
+
+      // define toolbar options
+      var options = {
+        position: 'topleft', // toolbar position, options are 'topleft', 'topright', 'bottomleft', 'bottomright'
+        drawMarker: true, // adds button to draw markers
+        drawPolyline: true, // adds button to draw a polyline
+        drawRectangle: true, // adds button to draw a rectangle
+        drawPolygon: true, // adds button to draw a polygon
+        drawCircle: true, // adds button to draw a cricle
+        cutPolygon: true, // adds button to cut a hole in a polygon
+        editMode: true, // adds button to toggle edit mode for all layers
+        removalMode: true,
+        propertyName: 'name' // adds a button to remove layers
+      };
+
+      // add leaflet.pm controls to the map
+      map.pm.addControls(options);
+    </script>
+  </body>
+</html>
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
